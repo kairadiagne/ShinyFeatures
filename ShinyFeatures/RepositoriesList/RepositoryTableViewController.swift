@@ -31,8 +31,8 @@ final class RepositoryTableViewController: UITableViewController {
         tableView.estimatedRowHeight = 50
         tableView.rowHeight = UITableViewAutomaticDimension
 
-         viewModel.changeHandler = { [weak self] in 
-             self?.tableView.reloadData()
+         viewModel.changeHandler = {
+             self.tableView.reloadData()
          }
     }
 

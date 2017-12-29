@@ -8,9 +8,9 @@
 
 import UIKit
 
-class WWDCNewFeaturesViewController: UITableViewController {
+final class WWDCNewFeaturesViewController: UITableViewController {
 
-    private let newFeatures: [String] = ["ARKit", "CoreML", "Codable", "WatchOS", "Password Autofill", "WatchOS4"]
+    private let newFeatures: [String] = ["ARKit", "CoreML", "WatchOS 4", "Password Autofill", "Swift 4 Keypaths"]
 
     override func viewDidLoad() {
         super.viewDidLoad()

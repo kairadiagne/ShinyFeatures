@@ -27,13 +27,15 @@ final class RepositoryTableViewModel {
     }
 
     func loadRepositories(feature: String) {
-        apiService.loadRepositories(searchTerm: feature) { result in
+        apiService.loadRepositories(searchTerm: feature) { [weak self] result in
+            guard let strongSelf = self else { return }
+
             DispatchQueue.main.async {
                 switch result {
                 case .success(let repositories):
                     // Since we using MVVM here in real life we would transform our
                     // repository models to viewModels to nicely decouple our model from our views.
-                    self.repositories = repositories
+                    strongSelf.repositories = repositories
                 case .error:
                     // TODO: - Handle Error
                     break
