@@ -8,14 +8,8 @@
 
 import Foundation
 
-struct GitHubPage: Codable {
+struct GitHubPage: Equatable, Codable {
     var totalCount: Int
     var incompleteResults: Bool
     var items: [GitHubRepo]
-
-    enum CodingKeys: String, CodingKey {
-        case totalCount = "total_count"
-        case incompleteResults = "incomplete_results"
-        case items
-    }
 }

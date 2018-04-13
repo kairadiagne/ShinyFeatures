@@ -15,12 +15,18 @@ enum Result<T: Codable> {
 
 final class GithubAPIService {
 
+    private lazy var decoder: JSONDecoder = {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        return decoder
+    }()
+
     func loadRepositories(searchTerm: String, completion: @escaping (Result<[GitHubRepo]>) -> Void) {
 
         let params: [String: String] = ["q": "\(searchTerm)+language:swift", "sort": "stars", "order": "desc"]
 
         var urlComponents = URLComponents(string: "https://api.github.com/search/repositories")
-        urlComponents?.queryItems = params.flatMap { URLQueryItem(name: $0.key, value: $0.value) }
+        urlComponents?.queryItems = params.compactMap { URLQueryItem(name: $0.key, value: $0.value) }
 
         guard let url = urlComponents?.url else {
             completion(.error)
@@ -42,7 +48,7 @@ final class GithubAPIService {
             }
 
             do {
-                let page = try JSONDecoder().decode(GitHubPage.self, from: data)
+                let page = try self.decoder.decode(GitHubPage.self, from: data)
                 completion(.success(page.items))
             } catch {
                 completion(.error)

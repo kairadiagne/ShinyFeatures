@@ -14,7 +14,7 @@ final class RepositoryTableViewController: UITableViewController {
 
     private let viewModel: RepositoryTableViewModel
 
-    init(feature: String, viewModel: RepositoryTableViewModel) {
+    init(feature: String, viewModel: RepositoryTableViewModel = RepositoryTableViewModel()) {
         self.feature = feature
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -24,6 +24,10 @@ final class RepositoryTableViewController: UITableViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    deinit {
+        print("RepositoryTableViewController Deinitialized")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,8 +35,10 @@ final class RepositoryTableViewController: UITableViewController {
         tableView.estimatedRowHeight = 50
         tableView.rowHeight = UITableViewAutomaticDimension
 
-         viewModel.changeHandler = {
-             self.tableView.reloadData()
+         viewModel.changeHandler = { [weak self] in
+            print("ChangeHandler closure called")
+            self?.tableView.reloadData()
+            // self.tableView.reloadData()
          }
     }
 

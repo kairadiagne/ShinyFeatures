@@ -27,7 +27,7 @@ final class RepositoryDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let urlRequest = URLRequest(url: repository.htmlURL)
+        let urlRequest = URLRequest(url: repository.htmlUrl)
         webView.loadRequest(urlRequest)
         webView.delegate = self
     }

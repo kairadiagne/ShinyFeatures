@@ -47,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		116BD00A20814D00003BE17A /* API */ = {
+			isa = PBXGroup;
+			children = (
+				11881E3D1FF5501100C4162B /* GitHubApiService.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		11881E161FF54EAC00C4162B = {
 			isa = PBXGroup;
 			children = (
@@ -68,7 +76,8 @@
 			children = (
 				11881E221FF54EAC00C4162B /* AppDelegate.swift */,
 				11881E401FF5504000C4162B /* Model */,
-				11881E4A1FF55B1D00C4162B /* WWDCNewFeaturesList */,
+				116BD00A20814D00003BE17A /* API */,
+				11881E4A1FF55B1D00C4162B /* FeaturesList */,
 				11881E3F1FF5502C00C4162B /* RepositoriesList */,
 				11881E451FF5543000C4162B /* RepositoryDetail */,
 				11881E421FF5506100C4162B /* Supporting Files */,
@@ -90,7 +99,6 @@
 			children = (
 				11881E431FF5519D00C4162B /* GitHubPage.swift */,
 				11881E3B1FF54FF500C4162B /* GitHubRepo.swift */,
-				11881E3D1FF5501100C4162B /* GitHubApiService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -114,12 +122,12 @@
 			path = RepositoryDetail;
 			sourceTree = "<group>";
 		};
-		11881E4A1FF55B1D00C4162B /* WWDCNewFeaturesList */ = {
+		11881E4A1FF55B1D00C4162B /* FeaturesList */ = {
 			isa = PBXGroup;
 			children = (
 				11881E4B1FF55B4600C4162B /* WWDCNewFeaturesViewController.swift */,
 			);
-			path = WWDCNewFeaturesList;
+			path = FeaturesList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,7 +157,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Kaira Diagne";
 				TargetAttributes = {
 					11881E1E1FF54EAC00C4162B = {
@@ -233,6 +241,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -240,6 +249,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -290,6 +300,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -297,6 +308,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

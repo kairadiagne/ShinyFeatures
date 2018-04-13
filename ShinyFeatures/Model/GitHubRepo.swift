@@ -8,14 +8,9 @@
 
 import Foundation
 
-struct GitHubRepo: Codable {
+struct GitHubRepo: Codable, Equatable {
     var id: Int
     var name: String
     var description: String
-    var htmlURL: URL
-
-    enum CodingKeys: String, CodingKey {
-        case id, name, description
-        case htmlURL = "html_url"
-    }
+    var htmlUrl: URL
 }
