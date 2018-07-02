@@ -24,7 +24,7 @@ final class RepositoryTableViewModel {
     // Captures will be retained during the lifetime of an instance of this class.
     var changeHandler: ChangeHandler?
 
-    init(apiService: GithubAPIService = GithubAPIService()) {
+    init(apiService: GithubAPIService = GithubAPIService(withURLSession: URLSession.shared)) {
         self.apiService = apiService
     }
 

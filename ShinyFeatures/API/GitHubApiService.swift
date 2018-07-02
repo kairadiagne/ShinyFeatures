@@ -13,6 +13,7 @@ enum Result<T: Codable> {
     case error
 }
 
+
 final class GithubAPIService {
 
     private lazy var decoder: JSONDecoder = {
@@ -20,6 +21,11 @@ final class GithubAPIService {
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         return decoder
     }()
+    private var session: URLSessionProtocol
+    
+    init(withURLSession urlSession: URLSessionProtocol) {
+        self.session = urlSession
+    }
 
     func loadRepositories(searchTerm: String, completion: @escaping (Result<[GitHubRepo]>) -> Void) {
 
@@ -36,17 +42,15 @@ final class GithubAPIService {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
 
-        let session = URLSession.shared
-
         let task = session.dataTask(with: request) { (data, response, error) in
             guard error == nil else {
                 return completion(.error)
             }
-
+            
             guard let data = data else {
                 return completion(.error)
             }
-
+            
             do {
                 let page = try self.decoder.decode(GitHubPage.self, from: data)
                 completion(.success(page.items))
@@ -54,7 +58,6 @@ final class GithubAPIService {
                 completion(.error)
             }
         }
-
-        task.resume()
+       task.resume()
     }
 }
